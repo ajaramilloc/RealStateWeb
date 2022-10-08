@@ -5,8 +5,15 @@ import userRoutes from "./routes/userRoutes.js"
 // Create app
 const app = express()
 
+// Pug
+app.set('view engine', 'pug')
+app.set('views', './views')
+
+// Public Folder
+app.use(express.static('public'))
+
 // Routing
-app.use('/', userRoutes)
+app.use('/auth', userRoutes)
 
 // Define port and start proyect
 const port = 3000
